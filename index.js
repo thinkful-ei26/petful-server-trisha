@@ -30,7 +30,24 @@ const cat = [{
   age: 2,
   breed: 'Bengal',
   story: 'Thrown on the street'
-}];
+}, {
+  imageURL:'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg', 
+  imageDescription: '2nd cat',
+  name: 'Fluffy',
+  sex: 'Female',
+  age: 2,
+  breed: 'Bengal',
+  story: 'Thrown on the street'
+}, {
+  imageURL:'https://assets3.thrillist.com/v1/image/2622128/size/tmg-slideshow_l.jpg', 
+  imageDescription: '3rd cat',
+  name: 'Fluffy',
+  sex: 'Female',
+  age: 2,
+  breed: 'Bengal',
+  story: 'Thrown on the street'
+}
+];
 
 const dog = [{
   imageURL: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
@@ -40,16 +57,43 @@ const dog = [{
   age: 3,
   breed: 'Golden Retriever',
   story: 'Owner Passed away'
-}];
+},{
+  imageURL: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
+  imageDescription: '2nd dog',
+  name: 'Zeus',
+  sex: 'Male',
+  age: 3,
+  breed: 'Golden Retriever',
+  story: 'Owner Passed away'
+},{
+  imageURL: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
+  imageDescription: '3rd dog',
+  name: 'Zeus',
+  sex: 'Male',
+  age: 3,
+  breed: 'Golden Retriever',
+  story: 'Owner Passed away'
+}
+];
 
 app.get('/api/cat', (req, res, next) => {
   return res.json(cat[0]);
 });
 
-
-
 app.get('/api/dog', (req, res, next) => {
-  return res.json(dog[0]);
+  return res.json(dog);
+});
+
+app.delete('/api/dog', (req, res, next) => {
+  res.sendStatus(204);
+});
+
+app.delete('/api/dog', (req, res, next) => {
+  dog.remove()
+    .then(() => {
+      res.sendStatus(204);
+    })
+    .catch(err => next(err));
 });
 
 

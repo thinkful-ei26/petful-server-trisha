@@ -31,11 +31,12 @@ const dogs = [{
 ];
 
 router.get('/', (req, res, next) => {
-  return res.json(dogs);
+  return res.json(dogs[0]);
 });
 
 router.delete('/', (req,res,next)=> {
-  return res.sendStatus(204);
+  dogs.shift();
+  return res.sendStatus(204).json(dogs);
 });
 
 module.exports = router;

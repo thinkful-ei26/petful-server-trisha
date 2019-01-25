@@ -30,11 +30,12 @@ const cats = [{
 ];
 
 router.get('/', (req, res, next) => {
-  return res.json(cats);
+  return res.json(cats[0]);
 });
 
 router.delete('/', (req,res,next)=> {
-  return res.sendStatus(204);
+  cats.shift();
+  return res.sendStatus(204).json(cats);
 });
 
 module.exports = router;

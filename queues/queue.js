@@ -84,4 +84,4 @@ class Queue {
 // console.log(testQueue.peek());
 // console.log(testQueue.isEmpty());
 
-module.exports = Queue;
+module.exports = { Queue };
